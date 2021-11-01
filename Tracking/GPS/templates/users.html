@@ -1,0 +1,41 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+
+
+<br>
+
+<div class="row">
+
+   <div class="col-md-7">
+        <h5>Users</h5>
+		<hr>
+		<div class="card card-body">
+			<br>
+			<table class="table table-sm">
+				<tr>
+					
+					<th>ID</th>
+					<th>Username</th>
+					<th>Email</th>
+                    <th></th>
+					<th></th>
+                    <th></th>
+				</tr>
+                {% for user in users %}
+                <tr>
+					<td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_user' user.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

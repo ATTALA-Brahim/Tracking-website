@@ -1,0 +1,59 @@
+{%  extends 'main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+
+   <div class="col-md">
+        <h5>Location History</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'track' device.id %}">Start tracking</a>
+			<br>
+			<div class="col">
+				<div class="card card-body">
+		
+					<form method="get">
+						{{myFilter.form}}
+		
+					<button class="btn btn-primary" type="submit">Search</button>
+				  </form>
+		
+				</div>
+			</div>
+			<br>
+			<table class="table table-sm">
+				<tr>
+					
+					<th>longitude</th>
+					<th>latitude</th>
+					<th>date_created</th>
+                   
+					
+				</tr>
+                {% for location in locations %}
+                <tr>
+					
+                    <td>{{location.longitude}}</td>
+                    <td>{{location.latitude}}</td>
+                    <td>{{location.date_created}}</td>
+                </tr>
+            {% endfor %}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
